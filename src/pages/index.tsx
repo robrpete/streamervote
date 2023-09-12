@@ -28,9 +28,9 @@ export default function Home() {
             <input
               type="text"
               placeholder="Search"
-              className="text- rounded-l-lg border-[1px] bg-[#18181B] px-2 py-0.5 outline-none hover:bg-slate-600"
+              className="text- rounded-l-full border-[1px] bg-[#18181B] px-2 py-0.5 outline-none hover:bg-slate-600"
             />
-            <button className="rounded-r-lg bg-black px-2 py-2 text-white">
+            <button className="rounded-r-full bg-black px-2 py-2 text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
@@ -56,9 +56,9 @@ export default function Home() {
             <input
               type="text"
               placeholder="Search"
-              className="rounded-l-lg border-[1px] bg-[#18181B] px-2 py-0.5 outline-none"
+              className="rounded-l-full border-[1px] bg-[#18181B] px-2 py-0.5 outline-none hover:bg-slate-600"
             />
-            <button className="rounded-r-lg bg-black px-2 py-2 text-white">
+            <button className="rounded-r-full bg-black px-2 py-2 text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
