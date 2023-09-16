@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/Image";
 export default function Nav() {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
@@ -70,8 +71,14 @@ export default function Nav() {
           </div>
         </div>
         <div className="w-1/3">
-          <div className="text-right">
-            <div>avatar</div>
+          <div className="flex justify-end">
+            <Image
+              src="/av.png"
+              height={30}
+              width={30}
+              alt="avatar"
+              className="rounded-full"
+            />
           </div>
         </div>
       </div>
@@ -133,7 +140,18 @@ export default function Nav() {
           </button>
         </div>
         <div>
-          <div>avatar</div>
+          <div>
+            <Image
+              src="/av.png"
+              height={30}
+              width={30}
+              alt="avatar"
+              className="rounded-full"
+              onClick={() => {
+                console.log("avatar");
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
