@@ -16,7 +16,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-black to-[#18181B]">
         <Nav />
         <div className="flex h-[calc(100vh-48px)] w-full flex-col text-white md:flex-row">
-          <div className="flex w-full justify-between border-b-[1px] px-2 py-2 md:w-12 md:flex-col md:justify-start md:border-b-0 md:border-r-[1px]">
+          <div className="flex w-full items-center justify-between border-b-[1px] px-2 py-2 md:w-16 md:flex-col md:justify-start md:border-b-0 md:border-r-[1px]">
             <div className="rounded-full">
               <Image src="/teccy.png" height={30} width={30} alt="ava" />
             </div>
@@ -33,7 +33,23 @@ export default function Home() {
               <Image src="/teccy.png" height={30} width={30} alt="ava" />
             </div>
           </div>
-          <div className="pl-2">zackrawrr</div>
+          <div className="flex w-full flex-col items-center pl-2 md:pt-4">
+            <h2 className="py-4 text-4xl font-bold text-purple-400">
+              Top voted
+            </h2>
+            <div className="flex h-56 w-fit flex-col items-center rounded-xl border-2 border-white/50 bg-slate-600/20 px-2 shadow-2xl shadow-purple-600/80">
+              <p>zackrawrr</p>
+              <Image
+                src="/rawrr.png"
+                height={150}
+                width={150}
+                alt="ava"
+                className="rounded-full border-4"
+              />
+              <p>votes: 99,999</p>
+              <p className="text-red-600">not live</p>
+            </div>
+          </div>
         </div>
       </main>
     </>
