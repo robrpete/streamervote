@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Image from "next/Image";
+import Image from "next/image";
 export default function Nav() {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);

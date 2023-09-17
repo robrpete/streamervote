@@ -1,10 +1,11 @@
 import Head from "next/head";
+import Image from "next/image";
 import Nav from "~/components/nav";
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const { data } = api.stream.hello.useQuery();
-  if (!data) return <div>no data</div>;
+  // const { data } = api.stream.hello.useQuery();
+  // if (!data) return <div>no data</div>;
   return (
     <>
       <Head>
@@ -14,21 +15,25 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-black to-[#18181B]">
         <Nav />
-        <div className="flex h-[calc(100vh-48px)] w-full text-white">
-          <div className="flex w-16 flex-col items-center border-r-[1px] pt-4">
-            <div className="h-8 w-8 rounded-full bg-white"></div>
-            <div className="h-4"></div>
-            <div className="h-8 w-8 rounded-full bg-white"></div>
-            <div className="h-4"></div>
-            <div className="h-8 w-8 rounded-full bg-white"></div>
-            <div className="h-4"></div>
-            <div className="h-8 w-8 rounded-full bg-white"></div>
+        <div className="flex h-[calc(100vh-48px)] w-full flex-col text-white md:flex-row">
+          <div className="flex w-full justify-between border-b-[1px] px-2 py-2 md:w-12 md:flex-col md:justify-start md:border-b-0 md:border-r-[1px]">
+            <div className="rounded-full">
+              <Image src="/teccy.png" height={30} width={30} alt="ava" />
+            </div>
+            <div className="h-2"></div>
+            <div className="rounded-full">
+              <Image src="/teccy.png" height={30} width={30} alt="ava" />
+            </div>
+            <div className="h-2"></div>
+            <div className="rounded-full">
+              <Image src="/teccy.png" height={30} width={30} alt="ava" />
+            </div>
+            <div className="h-2"></div>
+            <div className="rounded-full">
+              <Image src="/teccy.png" height={30} width={30} alt="ava" />
+            </div>
           </div>
-          <div className="pl-2">
-            {data.map((d) => (
-              <div key={d.id}>{d.streamerName}</div>
-            ))}
-          </div>
+          <div className="pl-2">zackrawrr</div>
         </div>
       </main>
     </>
