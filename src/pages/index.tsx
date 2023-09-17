@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Nav from "~/components/nav";
-import { api } from "~/utils/api";
+// import { api } from "~/utils/api";
 
 export default function Home() {
   // const { data } = api.stream.hello.useQuery();
