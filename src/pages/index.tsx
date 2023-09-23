@@ -1,6 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
 import Nav from "~/components/nav";
+import SidePanel from "~/components/sidePanel";
+import TopStreamer from "~/components/topStreamer";
+import RunnerUp from "~/components/runnerUp";
 // import { api } from "~/utils/api";
 
 export default function Home() {
@@ -16,110 +18,10 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center overflow-auto bg-gradient-to-b from-black to-[#18181B] [&::-webkit-scrollbar]:hidden">
         <Nav />
         <div className="flex h-[calc(100vh-48px)] w-full flex-col text-white md:flex-row">
-          <div className="flex w-full items-center justify-between border-b-[1px] px-2 py-2 md:w-16 md:flex-col md:justify-start md:border-b-0 md:border-r-[1px]">
-            <div className="rounded-full">
-              <Image src="/teccy.png" height={30} width={30} alt="ava" />
-            </div>
-            <div className="h-2"></div>
-            <div className="rounded-full">
-              <Image src="/teccy.png" height={30} width={30} alt="ava" />
-            </div>
-            <div className="h-2"></div>
-            <div className="rounded-full">
-              <Image src="/teccy.png" height={30} width={30} alt="ava" />
-            </div>
-            <div className="h-2"></div>
-            <div className="rounded-full">
-              <Image src="/teccy.png" height={30} width={30} alt="ava" />
-            </div>
-          </div>
+          <SidePanel />
           <div className="flex w-full flex-col items-center text-center md:pt-2">
-            <h2 className="pt-4 text-3xl font-bold text-purple-400 mob:pt-2 mob:text-4xl">
-              Number One
-            </h2>
-            <h2 className="pb-4 text-3xl font-bold text-purple-400 mob:text-4xl">
-              Streamer
-            </h2>
-            <div className="flex h-56 w-fit flex-col items-center rounded-xl px-2 py-2">
-              <Image
-                src="/rawrr.png"
-                height={150}
-                width={150}
-                alt="ava"
-                className="rounded-full border-4"
-              />
-              <p className="text-xl font-semibold text-purple-400">zackrawrr</p>
-              <p>votes: 99,999</p>
-              <p className="text-red-600">not live</p>
-              <div className="flex gap-12 text-black">
-                <button className="rounded-lg bg-purple-400 px-2 py-1">
-                  vote
-                </button>
-                <div className="flex gap-2">
-                  <button className="rounded-lg bg-blue-600 px-2 py-1">
-                    up
-                  </button>
-                  <button className="rounded-lg bg-red-600 px-2 py-1">
-                    down
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex w-full flex-col items-center pt-16">
-              <h2 className="pb-4 text-3xl font-bold text-purple-400 mob:text-4xl">
-                Runner Ups
-              </h2>
-              <div className="flex w-11/12 flex-wrap justify-center gap-4">
-                <div className="flex h-40 w-fit flex-col items-center gap-2 sm:border-r-2 sm:pr-8">
-                  <p>zackrawrr</p>
-                  <Image
-                    src="/teccy.png"
-                    height={80}
-                    width={80}
-                    alt="ava"
-                    className="rounded-full border-4"
-                  />
-                  <p>votes: 99,999</p>
-                  <p className="text-red-600">not live</p>
-                </div>
-                <div className="flex h-40 w-fit flex-col items-center gap-2 sm:border-r-2 sm:pl-8 sm:pr-8">
-                  <p>zackrawrr</p>
-                  <Image
-                    src="/teccy.png"
-                    height={80}
-                    width={80}
-                    alt="ava"
-                    className="rounded-full border-4"
-                  />
-                  <p>votes: 99,999</p>
-                  <p className="text-red-600">not live</p>
-                </div>
-                <div className="flex h-40 w-fit flex-col items-center gap-2 sm:border-r-2 sm:pl-8 sm:pr-8">
-                  <p>zackrawrr</p>
-                  <Image
-                    src="/teccy.png"
-                    height={80}
-                    width={80}
-                    alt="ava"
-                    className="rounded-full border-4"
-                  />
-                  <p>votes: 99,999</p>
-                  <p className="text-red-600">not live</p>
-                </div>
-                <div className="flex h-40 w-fit flex-col items-center gap-2 sm:pl-8">
-                  <p>zackrawrr</p>
-                  <Image
-                    src="/teccy.png"
-                    height={80}
-                    width={80}
-                    alt="ava"
-                    className="rounded-full border-4"
-                  />
-                  <p>votes: 99,999</p>
-                  <p className="text-red-600">not live</p>
-                </div>
-              </div>
-            </div>
+            <TopStreamer />
+            <RunnerUp />
           </div>
         </div>
       </main>
