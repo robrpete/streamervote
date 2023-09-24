@@ -9,7 +9,7 @@ export default function TopStreamer() {
       <h2 className="pb-4 text-3xl font-bold text-purple-400 mob:text-4xl">
         Streamer
       </h2>
-      <div className="flex h-56 w-fit flex-col items-center rounded-xl px-2 py-2">
+      <div className="flex w-fit flex-col items-center rounded-xl px-2 py-2">
         <Image
           src="/rawrr.png"
           height={150}
