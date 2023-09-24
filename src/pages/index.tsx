@@ -37,25 +37,27 @@ export default function Home() {
           <SidePanel />
           <div className="absolute -z-10 hidden h-40 w-40 scale-[1.5] rounded-full bg-purple-700 blur-3xl transition-opacity duration-300 sm:block"></div>
           <div className="flex w-full flex-col items-center text-center md:pt-2">
-            <h2 className="py-4 text-3xl font-bold mob:pt-2 mob:text-4xl">
+            <h2 className="inline-block bg-gradient-to-b from-purple-700 to-white bg-clip-text pb-4 font-bold text-transparent mob:pt-2 mob:text-5xl">
               Top Streamer
             </h2>
-            <div
-              ref={cardEl}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              className="relative z-10 h-fit overflow-hidden rounded-lg border-[1px] border-white/20"
-            >
+            <div className="">
               <div
-                ref={circleEl}
-                style={{
-                  left: position.left,
-                  top: position.top,
-                  opacity: opacity,
-                }}
-                className="absolute -z-10 hidden h-20 w-20 scale-[1.2] bg-[#eab308] blur-3xl transition-opacity duration-300 sm:block"
-              ></div>
-              <TopStreamer />
+                ref={cardEl}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                className="relative z-10 h-fit overflow-hidden rounded-lg border-[1px] border-white/20"
+              >
+                <div
+                  ref={circleEl}
+                  style={{
+                    left: position.left,
+                    top: position.top,
+                    opacity: opacity,
+                  }}
+                  className="absolute -z-10 hidden h-20 w-20 scale-[1.2] bg-[#eab308] blur-3xl transition-opacity duration-300 sm:block"
+                ></div>
+                <TopStreamer />
+              </div>
             </div>
             <RunnerUp />
           </div>

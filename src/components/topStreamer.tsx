@@ -14,9 +14,11 @@ export default function TopStreamer() {
         />
 
         <p className="pt-2">votes: 99,999</p>
-        <p className="text-red-600">not live</p>
+        <p className="pb-1 text-red-600">not live</p>
         <div className="flex w-full flex-col gap-2 text-black">
-          <button className=" rounded-lg bg-yellow-400 px-2 py-1">vote</button>
+          <button className=" rounded-lg bg-yellow-400 py-1 text-xl font-semibold">
+            Vote
+          </button>
         </div>
       </div>
     </div>
