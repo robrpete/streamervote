@@ -1,0 +1,141 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "id": "4f20a348-e224-4ea0-812e-9f0e9ba76235",
+  "prevId": "3642cfe1-bfd8-4309-8d4f-798cb19e8a5f",
+  "tables": {
+    "streamer": {
+      "name": "streamer",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(191)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "avatar": {
+          "name": "avatar",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "emojis": {
+          "name": "emojis",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "followers": {
+          "name": "followers",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bigint": {
+          "name": "bigint",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "token": {
+      "name": "token",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(191)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "user": {
+      "name": "user",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(191)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "clerkId": {
+          "name": "clerkId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "followed": {
+          "name": "followed",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "searched": {
+          "name": "searched",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {
+      "\"todo\"": "\"streamer\""
+    },
+    "columns": {
+      "\"streamer\".\"streamerName\"": "\"streamer\".\"name\""
+    }
+  }
+}

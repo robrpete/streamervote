@@ -15,6 +15,13 @@
       "when": 1694389318827,
       "tag": "0001_petite_inhumans",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1695674187228,
+      "tag": "0002_bent_screwball",
+      "breakpoints": true
     }
   ]
 }
