@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",
-    "**/*.mjs"
+    "**/*.mjs",
+    "src/utils/twitchAPI.ts"
   ],
   "exclude": ["node_modules"]
 }

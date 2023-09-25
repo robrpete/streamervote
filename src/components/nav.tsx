@@ -1,8 +1,14 @@
 import { useState } from "react";
 import Image from "next/image";
+import getAuth from "~/utils/twitchAPI";
+
 export default function Nav() {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+
+  const handleGetAuth = () => {
+    void getAuth();
+  };
   return (
     <div className="w-full">
       <div className="hidden h-12 w-full items-center bg-[#18181B] px-4 text-lg font-semibold text-white md:flex">
@@ -58,7 +64,10 @@ export default function Nav() {
                 </button>
               )}
             </div>
-            <button className="rounded-r-full bg-black px-2 py-2 text-white">
+            <button
+              onClick={handleGetAuth}
+              className="rounded-r-full bg-black px-2 py-2 text-white"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
@@ -128,7 +137,10 @@ export default function Nav() {
               </button>
             )}
           </div>
-          <button className="rounded-full bg-black px-2 py-2 text-white mob:rounded-l-lg">
+          <button
+            onClick={handleGetAuth}
+            className="rounded-full bg-black px-2 py-2 text-white mob:rounded-l-lg"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="1em"

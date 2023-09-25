@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function Home() {
   // const { data } = api.stream.hello.useQuery();
-  // if (!data) return <div>no data</div>;
+
   const { ref: circleEl, width, height } = useElementSize();
   const { ref: cardEl, x, y } = useMouse();
 
@@ -23,7 +23,7 @@ export default function Home() {
   function handleMouseLeave() {
     setOpacity(0);
   }
-
+  // if (!data) return <div>no data</div>;
   return (
     <>
       <Head>
