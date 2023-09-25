@@ -20,7 +20,12 @@ export default function TopStreamer() {
         <p className="pt-2">votes: 99,999</p>
         <p className="pb-1 text-red-600">not live</p>
         <div className="flex w-full flex-col gap-2">
-          <button className=" rounded-lg bg-purple-700 py-1 text-xl font-semibold">
+          <button
+            onClick={() => {
+              console.log("voted");
+            }}
+            className=" rounded-lg bg-purple-700 py-1 text-xl font-semibold"
+          >
             Vote
           </button>
         </div>

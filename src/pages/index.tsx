@@ -35,9 +35,9 @@ export default function Home() {
         <Nav />
         <div className="relative z-10 flex h-[calc(100vh-48px)] w-full flex-col overflow-hidden text-white md:flex-row">
           <SidePanel />
-          <div className="absolute -z-10 hidden h-40 w-40 scale-[1.5] rounded-full bg-purple-700 blur-3xl transition-opacity duration-300 sm:block"></div>
+          <div className="absolute right-0 -z-10 hidden h-40 w-40 scale-[1.5] rounded-full bg-purple-700 blur-3xl transition-opacity duration-300 sm:block"></div>
           <div className="flex w-full flex-col items-center text-center md:pt-2">
-            <h2 className="inline-block bg-gradient-to-b from-purple-700 to-white bg-clip-text pb-4 font-bold text-transparent mob:pt-2 mob:text-5xl">
+            <h2 className="inline-block bg-gradient-to-b from-purple-700 to-white bg-clip-text pb-4 text-4xl font-bold text-transparent mob:text-5xl">
               Top Streamer
             </h2>
             <div className="">
