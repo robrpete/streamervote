@@ -1,0 +1,1 @@
+ALTER TABLE "streamer" ADD COLUMN "followers" json DEFAULT '{"followers":"none"}'::json;

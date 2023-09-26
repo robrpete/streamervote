@@ -1,0 +1,143 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "id": "c71fc2dc-a4a8-4df1-8991-bbcda44dc93f",
+  "prevId": "60375a4d-2764-4804-bb35-4f0b08b1e211",
+  "tables": {
+    "streamer": {
+      "name": "streamer",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(191)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "avatar": {
+          "name": "avatar",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'white'"
+        },
+        "emojis": {
+          "name": "emojis",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'{\"emojis\":\"none\"}'::json"
+        },
+        "followers": {
+          "name": "followers",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'{\"followers\":\"none\"}'::json"
+        },
+        "bigint": {
+          "name": "bigint",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "token": {
+      "name": "token",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(191)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "user": {
+      "name": "user",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(191)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "clerkId": {
+          "name": "clerkId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "followed": {
+          "name": "followed",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'{\"followed\":\"none\"}'::json"
+        },
+        "searched": {
+          "name": "searched",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'{\"searched\":\"none\"}'::json"
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

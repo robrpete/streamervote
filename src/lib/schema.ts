@@ -14,8 +14,8 @@ export const user = pgTable("user", {
     .$defaultFn(() => createId())
     .primaryKey(),
   clerkId: text("clerkId"),
-  followed: json("followed"),
-  searched: json("searched"),
+  followed: json("followed").default({ followed: "none" }),
+  searched: json("searched").default({ searched: "none" }),
   createdAt: timestamp("createdAt").defaultNow(),
 });
 
@@ -25,10 +25,10 @@ export const streamer = pgTable("streamer", {
     .primaryKey(),
   name: text("name"),
   avatar: text("avatar"),
-  color: text("color"),
-  emojis: json("emojis"),
-  followers: text("followers"),
-  votes: bigint("bigint", { mode: "number" }),
+  color: text("color").default("white"),
+  emojis: json("emojis").default({ emojis: "none" }),
+  followers: json("followers").default({ followers: "none" }),
+  votes: bigint("bigint", { mode: "number" }).default(0),
 });
 
 export const token = pgTable("token", {
