@@ -40,12 +40,12 @@ export default function Home() {
             <h2 className="inline-block bg-gradient-to-b from-purple-700 to-white bg-clip-text pb-4 text-4xl font-bold text-transparent mob:text-5xl">
               Top Streamer
             </h2>
-            <div className="">
+            <div>
               <div
                 ref={cardEl}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className="relative z-10 h-fit overflow-hidden rounded-lg border-[1px] border-white/20"
+                className="relative z-10 h-fit w-fit overflow-hidden rounded-lg border-[1px] border-white/20 bg-black shadow-md shadow-white/20"
               >
                 <div
                   ref={circleEl}

@@ -7,6 +7,9 @@ export default {
       screens: {
         mob: "480px",
       },
+      animation: {
+        "spin-slow": "spin 8s linear infinite",
+      },
     },
   },
   plugins: [],
