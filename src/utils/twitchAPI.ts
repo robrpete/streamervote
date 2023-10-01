@@ -5,6 +5,12 @@ let accessToken = "";
 type authToken = {
   access_token: string;
 };
+type search_result = {
+  display_name: string;
+  is_live: boolean;
+};
+let searchResult: search_result[] = [];
+
 const authOptions = {
   method: "POST",
   headers: {
@@ -12,8 +18,21 @@ const authOptions = {
   },
   body: `client_id=${clientID}&client_secret=${clientSecret}&grant_type=client_credentials`,
 };
+const searchOptions = {
+  method: "GET",
+  headers: {
+    Authorization: "Bearer 96rqe5235nuru9ijj88cvjqci7dson",
+    "Client-Id": clientID,
+  },
+};
+
+export function checkToken() {
+  console.log(accessToken);
+  console.log(searchOptions);
+}
 
 export default async function getAuth() {
+  console.log("ran");
   await fetch(`https://id.twitch.tv/oauth2/token`, authOptions)
     .then((response) => response.json())
     .then((data: authToken) => {
@@ -28,4 +47,25 @@ export default async function getAuth() {
     });
 
   console.log("access token ", accessToken);
+}
+
+export async function searchChannels(name: string) {
+  await fetch(
+    `https://api.twitch.tv/helix/search/channels?query=${name}`,
+    searchOptions,
+  )
+    .then((response) => response.json())
+    .then((data: search_result[]) => {
+      if (data) {
+        searchResult = data;
+      } else {
+        console.error("Search failed");
+        console.log(searchOptions);
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+  console.log("search results ", searchResult);
 }

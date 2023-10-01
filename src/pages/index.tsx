@@ -5,6 +5,7 @@ import TopStreamer from "~/components/topStreamer";
 import RunnerUp from "~/components/runnerUp";
 import { useElementSize, useMouse } from "@mantine/hooks";
 import { useState } from "react";
+import getAuth, { checkToken, searchChannels } from "~/utils/twitchAPI";
 // import { api } from "~/utils/api";
 
 export default function Home() {
@@ -23,6 +24,15 @@ export default function Home() {
   function handleMouseLeave() {
     setOpacity(0);
   }
+
+  function handleAuth() {
+    void getAuth();
+  }
+
+  function handleSearch() {
+    void searchChannels("zackrawrr");
+  }
+
   // if (!data) return <div>no data</div>;
   return (
     <>
@@ -40,6 +50,9 @@ export default function Home() {
             <h2 className="inline-block bg-gradient-to-b from-purple-700 to-white bg-clip-text pb-4 text-4xl font-bold text-transparent mob:text-5xl">
               Top Streamer
             </h2>
+            <button onClick={handleAuth}>Auth</button>
+            <button onClick={handleSearch}>Search</button>
+            <button onClick={checkToken}>token?</button>
             <div>
               <div
                 ref={cardEl}
