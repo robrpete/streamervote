@@ -21,7 +21,7 @@ const authOptions = {
 const searchOptions = {
   method: "GET",
   headers: {
-    Authorization: "Bearer 96rqe5235nuru9ijj88cvjqci7dson",
+    Authorization: `Bearer ${accessToken}`,
     "Client-Id": clientID,
   },
 };
