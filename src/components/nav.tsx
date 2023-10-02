@@ -1,14 +1,21 @@
 import { useState } from "react";
+import { api } from "~/utils/api";
 import Image from "next/image";
-import getAuth from "~/utils/twitchAPI";
+import Link from "next/link";
+
+import { searchChannels } from "~/utils/twitchAPI";
 
 export default function Nav() {
+  const { data: token } = api.token.getToken.useQuery();
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleGetAuth = () => {
-    void getAuth();
-  };
+  function handleSearch() {
+    if (token) {
+      const t = token[0]?.token ?? "";
+      void searchChannels(search, t);
+    }
+  }
   return (
     <div className="w-full">
       <div className="hidden h-12 w-full items-center bg-[#18181B] px-4 text-lg font-semibold text-white md:flex">
@@ -64,19 +71,21 @@ export default function Nav() {
                 </button>
               )}
             </div>
-            <button
-              onClick={handleGetAuth}
-              className="rounded-r-full bg-black px-2 py-2 text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="1em"
-                viewBox="0 0 512 512"
-                style={{ fill: "white" }}
+            <Link href={`/results?search=${search}`}>
+              <button
+                onClick={handleSearch}
+                className="rounded-r-full bg-black px-2 py-2 text-white"
               >
-                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 512 512"
+                  style={{ fill: "white" }}
+                >
+                  <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                </svg>
+              </button>
+            </Link>
           </div>
         </div>
         <div className="w-1/3">
@@ -138,7 +147,7 @@ export default function Nav() {
             )}
           </div>
           <button
-            onClick={handleGetAuth}
+            onClick={handleSearch}
             className="rounded-full bg-black px-2 py-2 text-white mob:rounded-l-lg"
           >
             <svg

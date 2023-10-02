@@ -18,38 +18,50 @@ const authOptions = {
   },
   body: `client_id=${clientID}&client_secret=${clientSecret}&grant_type=client_credentials`,
 };
-const searchOptions = {
-  method: "GET",
-  headers: {
-    Authorization: `Bearer ${accessToken}`,
-    "Client-Id": clientID,
-  },
-};
 
-export function checkToken() {
-  console.log(accessToken);
-  console.log(searchOptions);
-}
+let searchOptions = {};
 
-export default async function getAuth() {
-  console.log("ran");
-  await fetch(`https://id.twitch.tv/oauth2/token`, authOptions)
-    .then((response) => response.json())
-    .then((data: authToken) => {
-      if (data.access_token) {
-        accessToken = data.access_token;
-      } else {
-        console.error("Failed to obtain access token");
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
+export default async function getAuth(token: string | null) {
+  if (token) {
+    accessToken = token;
+    console.log(accessToken);
+    return;
+  } else {
+    console.log("no token");
+    return new Promise<void>((resolve, reject) => {
+      fetch(`https://id.twitch.tv/oauth2/token`, authOptions)
+        .then((response) => response.json())
+        .then((data: authToken) => {
+          if (data.access_token) {
+            accessToken = data.access_token;
+
+            resolve(); // Resolve the promise when the access token is obtained
+          } else {
+            console.error("Failed to obtain access token");
+            reject("Failed to obtain access token"); // Reject the promise on failure
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          reject(error); // Reject the promise on error
+        });
     });
-
-  console.log("access token ", accessToken);
+  }
 }
 
-export async function searchChannels(name: string) {
+export async function searchChannels(name: string, token: string) {
+  void getAuth(token);
+  if (name === "") {
+    console.log("please enter a name", name);
+    return;
+  }
+  searchOptions = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Client-Id": clientID,
+    },
+  };
   await fetch(
     `https://api.twitch.tv/helix/search/channels?query=${name}`,
     searchOptions,
@@ -68,4 +80,9 @@ export async function searchChannels(name: string) {
     });
 
   console.log("search results ", searchResult);
+}
+
+export function checkToken() {
+  console.log(accessToken);
+  console.log(searchOptions);
 }
