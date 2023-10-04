@@ -5,11 +5,6 @@ let accessToken = "";
 type authToken = {
   access_token: string;
 };
-type search_result = {
-  display_name: string;
-  is_live: boolean;
-};
-let searchResult: search_result[] = [];
 
 const authOptions = {
   method: "POST",
@@ -49,6 +44,11 @@ export default async function getAuth(token: string | null) {
   }
 }
 
+type ret = {
+  data: Array<object>;
+};
+let arr: object[] = [];
+
 export async function searchChannels(name: string, token: string) {
   void getAuth(token);
   if (name === "") {
@@ -67,19 +67,12 @@ export async function searchChannels(name: string, token: string) {
     searchOptions,
   )
     .then((response) => response.json())
-    .then((data: search_result[]) => {
-      if (data) {
-        searchResult = data;
-      } else {
-        console.error("Search failed");
-        console.log(searchOptions);
-      }
-    })
+    .then((data: ret) => (arr = data.data))
+
     .catch((error) => {
       console.error("Error:", error);
     });
-
-  console.log("search results ", searchResult);
+  return arr;
 }
 
 export function checkToken() {

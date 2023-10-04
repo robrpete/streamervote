@@ -10,10 +10,13 @@ export default function Nav() {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
-  function handleSearch() {
+  async function handleSearch() {
     if (token) {
       const t = token[0]?.token ?? "";
-      void searchChannels(search, t);
+      const results = await searchChannels(search, t);
+      const k = results?.map((r) => Object.keys(r));
+      const v = results?.map((r) => Object.values(r));
+      console.log(k, v);
     }
   }
   return (
