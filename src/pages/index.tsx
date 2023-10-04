@@ -2,6 +2,7 @@ import TopStreamer from "~/components/topStreamer";
 import RunnerUp from "~/components/runnerUp";
 import { useElementSize, useMouse } from "@mantine/hooks";
 import { useState } from "react";
+import { useStore } from "~/utils/zusState";
 // import { api } from "~/utils/api";
 
 export default function Home() {
@@ -12,6 +13,8 @@ export default function Home() {
 
   const [position, setPosition] = useState({ left: -100, top: -100 });
   const [opacity, setOpacity] = useState(0);
+  const { votes } = useStore();
+  const increaseVote = useStore((state) => state.increaseVote);
 
   function handleMouseMove() {
     setOpacity(1);
@@ -19,6 +22,10 @@ export default function Home() {
   }
   function handleMouseLeave() {
     setOpacity(0);
+  }
+
+  function handleIncrease() {
+    increaseVote(1);
   }
 
   // if (!data) return <div>no data</div>;
@@ -47,6 +54,10 @@ export default function Home() {
         </div>
       </div>
       <RunnerUp />
+      <div>
+        <p>{votes}</p>
+        <button onClick={handleIncrease}>click</button>
+      </div>
     </>
   );
 }
