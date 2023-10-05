@@ -5,6 +5,10 @@ import Link from "next/link";
 
 import { searchChannels } from "~/utils/twitchAPI";
 
+type ValueT = {
+  value: string;
+};
+
 export default function Nav() {
   const { data: token } = api.token.getToken.useQuery();
   const [search, setSearch] = useState("");
@@ -15,7 +19,7 @@ export default function Nav() {
       const t = token[0]?.token ?? "";
       const results = await searchChannels(search, t);
       const k = results?.map((r) => Object.keys(r));
-      const v = results?.map((r) => Object.values(r));
+      const v = results?.map((r: ValueT) => Object.values(r));
       console.log(k, v);
     }
   }
