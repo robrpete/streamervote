@@ -19,7 +19,6 @@ export default function Nav() {
       const t = token[0]?.token ?? "";
       const results = await searchChannels(search, t);
       const k = results?.map((r) => Object.keys(r));
-      const v = results?.map((r) => Object.values(r));
       console.log(k, v);
     }
   }
