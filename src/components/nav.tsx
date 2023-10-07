@@ -5,10 +5,6 @@ import Link from "next/link";
 
 import { searchChannels } from "~/utils/twitchAPI";
 
-type ValueT = {
-  value: string;
-};
-
 export default function Nav() {
   const { data: token } = api.token.getToken.useQuery();
   const [search, setSearch] = useState("");
@@ -22,6 +18,7 @@ export default function Nav() {
       console.log(k);
     }
   }
+
   return (
     <div className="w-full">
       <div className="hidden h-12 w-full items-center bg-[#18181B] px-4 text-lg font-semibold text-white md:flex">
@@ -79,7 +76,9 @@ export default function Nav() {
             </div>
             <Link href={`/results?search=${search}`}>
               <button
-                onClick={handleSearch}
+                onClick={() => {
+                  console.log("here");
+                }}
                 className="rounded-r-full bg-black px-2 py-2 text-white"
               >
                 <svg
@@ -153,7 +152,9 @@ export default function Nav() {
             )}
           </div>
           <button
-            onClick={handleSearch}
+            onClick={() => {
+              console.log("here");
+            }}
             className="rounded-full bg-black px-2 py-2 text-white mob:rounded-l-lg"
           >
             <svg
