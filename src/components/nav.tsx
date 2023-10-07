@@ -10,12 +10,16 @@ export default function Nav() {
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
-  async function handleSearch() {
+  function handleSearch() {
     if (token) {
       const t = token[0]?.token ?? "";
-      const results = await searchChannels(search, t);
-      const k = results?.map((r) => Object.keys(r));
-      console.log(k);
+      searchChannels(search, t)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
 
@@ -76,9 +80,7 @@ export default function Nav() {
             </div>
             <Link href={`/results?search=${search}`}>
               <button
-                onClick={() => {
-                  console.log("here");
-                }}
+                onClick={handleSearch}
                 className="rounded-r-full bg-black px-2 py-2 text-white"
               >
                 <svg
@@ -152,9 +154,7 @@ export default function Nav() {
             )}
           </div>
           <button
-            onClick={() => {
-              console.log("here");
-            }}
+            onClick={handleSearch}
             className="rounded-full bg-black px-2 py-2 text-white mob:rounded-l-lg"
           >
             <svg

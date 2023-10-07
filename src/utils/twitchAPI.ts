@@ -47,7 +47,6 @@ export default async function getAuth(token: string | null) {
 type ret = {
   data: Array<object>;
 };
-let arr: object[] = [];
 
 export async function searchChannels(name: string, token: string) {
   void getAuth(token);
@@ -62,17 +61,15 @@ export async function searchChannels(name: string, token: string) {
       "Client-Id": clientID,
     },
   };
-  await fetch(
+  const res = await fetch(
     `https://api.twitch.tv/helix/search/channels?query=${name}`,
     searchOptions,
-  )
-    .then((response) => response.json())
-    .then((data: ret) => (arr = data.data))
-
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-  return arr;
+  );
+  if (!res.ok) {
+    throw new Error("no res");
+  }
+  const data = (await res.json()) as ret;
+  return data.data;
 }
 
 export function checkToken() {
