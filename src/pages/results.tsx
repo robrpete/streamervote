@@ -1,32 +1,36 @@
 import { useStore, searchedStore } from "~/utils/zusState";
 
+type ss = {
+  broadcaster_language: string;
+  broadcaster_login: string;
+  display_name: string;
+  game_id: string;
+  id: string;
+  is_live: boolean;
+  started_at: string;
+  tag_ids: string[];
+  tags: string[];
+  thumbnail_url: string;
+  title: string;
+};
+
+type sss = { r: ss };
+
 export default function Results() {
   const votes = useStore((state) => state.votes);
-  const searched = searchedStore((state) => state.searched);
-
-  type kv = Record<string, number>;
-
-  const results: kv[] = [{ one: 1 }, { two: 2 }];
-  const k = results.map((r) => Object.keys(r));
-  const v = results.map((r) => Object.values(r));
-
-  function handleTest() {
-    results.map((r, index) => {
-      searchedStore.setState((prev) => ({
-        searched: new Map(prev.searched).set(k[index], v[index]),
-      }));
-    });
-  }
-
+  const { searched } = searchedStore();
   const arr = Array.from(searched);
 
   return (
     <div>
       results {votes}
-      <button onClick={handleTest} className="rounded-lg bg-blue-600 p-1">
-        test
-      </button>
+      <button className="rounded-lg bg-blue-600 p-1">test</button>
       search:
+      {arr.map((r: sss) => (
+        <div key={r.r.id}>
+          {r.r.display_name}, {r.r.title}
+        </div>
+      ))}
     </div>
   );
 }

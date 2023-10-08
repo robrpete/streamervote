@@ -4,18 +4,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { searchChannels } from "~/utils/twitchAPI";
+import { searchedStore } from "~/utils/zusState";
 
 export default function Nav() {
   const { data: token } = api.token.getToken.useQuery();
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
+  const searched = searchedStore((state) => state.searched);
 
   function handleSearch() {
+    let res = [];
     if (token) {
       const t = token[0]?.token ?? "";
       searchChannels(search, t)
         .then((result) => {
-          console.log(result);
+          res = result ?? [];
+          result?.map((r) => {
+            searchedStore.setState((prev) => ({
+              searched: new Set(prev.searched).add({
+                r: r,
+              }),
+            }));
+          });
+          console.log(res, searched);
         })
         .catch((error) => {
           console.log(error);

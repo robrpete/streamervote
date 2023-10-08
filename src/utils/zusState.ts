@@ -10,4 +10,4 @@ export const useStore = create<voteI>()((set) => ({
   increaseVote: (by) => set((state) => ({ votes: state.votes + by })),
 }));
 
-export const searchedStore = create(() => ({ searched: new Map() }));
+export const searchedStore = create<>(() => ({ searched: new Set() }));

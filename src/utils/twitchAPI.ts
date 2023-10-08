@@ -30,15 +30,15 @@ export default async function getAuth(token: string | null) {
           if (data.access_token) {
             accessToken = data.access_token;
 
-            resolve(); // Resolve the promise when the access token is obtained
+            resolve();
           } else {
             console.error("Failed to obtain access token");
-            reject("Failed to obtain access token"); // Reject the promise on failure
+            reject("Failed to obtain access token");
           }
         })
         .catch((error) => {
           console.error("Error:", error);
-          reject(error); // Reject the promise on error
+          reject(error);
         });
     });
   }
