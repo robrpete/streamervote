@@ -6,6 +6,20 @@ import Link from "next/link";
 import { searchChannels } from "~/utils/twitchAPI";
 import { searchedStore } from "~/utils/zusState";
 
+type ss = {
+  broadcaster_language: string;
+  broadcaster_login: string;
+  display_name: string;
+  game_id: string;
+  id: string;
+  is_live: boolean;
+  started_at: string;
+  tag_ids: string[];
+  tags: string[];
+  thumbnail_url: string;
+  title: string;
+};
+
 export default function Nav() {
   const { data: token } = api.token.getToken.useQuery();
   const [search, setSearch] = useState("");
@@ -13,20 +27,17 @@ export default function Nav() {
   const searched = searchedStore((state) => state.searched);
 
   function handleSearch() {
-    let res = [];
     if (token) {
       const t = token[0]?.token ?? "";
       searchChannels(search, t)
         .then((result) => {
-          res = result ?? [];
           result?.map((r) => {
             searchedStore.setState((prev) => ({
               searched: new Set(prev.searched).add({
-                r: r,
+                r: r as ss,
               }),
             }));
           });
-          console.log(res, searched);
         })
         .catch((error) => {
           console.log(error);
