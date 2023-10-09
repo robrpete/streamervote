@@ -15,7 +15,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
         <div className="relative z-10 flex h-[calc(100vh-48px)] w-full flex-col overflow-hidden text-white md:flex-row">
           <SidePanel />
           <div className="absolute right-0 -z-10 hidden h-40 w-40 scale-[1.5] rounded-full bg-purple-700 blur-3xl transition-opacity duration-300 sm:block"></div>
-          <div className="flex w-full flex-col items-center text-center md:pt-2">
+          <div className="flex w-full flex-col items-center overflow-auto text-center md:pt-2 [&::-webkit-scrollbar]:hidden">
             {children}
           </div>
         </div>

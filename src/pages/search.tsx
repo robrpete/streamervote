@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import { useStore, searchedStore } from "~/utils/zusState";
 
 export default function Results() {
@@ -11,7 +13,17 @@ export default function Results() {
       <button className="rounded-lg bg-blue-600 p-1">test</button>
       search:
       {arr.map((a) => (
-        <div key={a.r.id}>{a.r.display_name}</div>
+        <div key={a.r.id}>
+          <Image
+            src={a.r.thumbnail_url}
+            width={40}
+            height={40}
+            alt={a.r.display_name}
+          />
+          <Link href="/" className="hover:text-purple-400">
+            {a.r.display_name}
+          </Link>
+        </div>
       ))}
     </div>
   );
