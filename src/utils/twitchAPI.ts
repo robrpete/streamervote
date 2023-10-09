@@ -51,7 +51,7 @@ type ret = {
 export async function searchChannels(name: string, token: string) {
   void getAuth(token);
   if (name === "") {
-    console.log("please enter a name", name);
+    console.log("please enter a name");
     return;
   }
   searchOptions = {
@@ -61,6 +61,10 @@ export async function searchChannels(name: string, token: string) {
       "Client-Id": clientID,
     },
   };
+  console.log(
+    searchOptions,
+    `https://api.twitch.tv/helix/search/channels?query=${name}`,
+  );
   const res = await fetch(
     `https://api.twitch.tv/helix/search/channels?query=${name}`,
     searchOptions,
