@@ -28,4 +28,9 @@ type sss = { r: ss };
 
 type St = { searched: Set<sss> };
 
-export const searchedStore = create<St>(() => ({ searched: new Set<sss>() }));
+export const searchedStore = create<St>(() => ({
+  searched: new Set<sss>(),
+  clear: () => {
+    searched: new Set();
+  },
+}));

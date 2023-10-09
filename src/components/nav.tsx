@@ -29,7 +29,7 @@ export default function Nav() {
   function handleSearch() {
     if (token) {
       const t = token[0]?.token ?? "";
-      searchedStore.setState(() => ({ searched: new Set() }));
+      searched.clear();
       searchChannels(search, t)
         .then((result) => {
           result?.map((r) => {
