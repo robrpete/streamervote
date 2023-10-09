@@ -29,6 +29,7 @@ export default function Nav() {
   function handleSearch() {
     if (token) {
       const t = token[0]?.token ?? "";
+      searchedStore.setState(() => ({ searched: new Set() }));
       searchChannels(search, t)
         .then((result) => {
           result?.map((r) => {
@@ -49,7 +50,10 @@ export default function Nav() {
     <div className="w-full">
       <div className="hidden h-12 w-full items-center bg-[#18181B] px-4 text-lg font-semibold text-white md:flex">
         <div className="flex w-1/3 gap-4">
-          <div>SV</div>
+          <Link href="/">
+            <div>SV</div>
+          </Link>
+
           <div className="flex gap-2">
             <p>following</p>
             <p>browse</p>
@@ -100,7 +104,7 @@ export default function Nav() {
                 </button>
               )}
             </div>
-            <Link href={`/results?search=${search}`}>
+            <Link href={`/search?term=${search}`}>
               <button
                 onClick={handleSearch}
                 className="rounded-r-full bg-black px-2 py-2 text-white"
