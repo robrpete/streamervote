@@ -7,9 +7,9 @@ export default function Results() {
   const arr = Array.from(searched);
   console.log(arr);
   return (
-    <div className="flex w-full flex-col">
+    <div className="grid grid-cols-1 items-center md:grid-cols-2">
       {arr.map((a) => (
-        <div key={a.r.id} className="flex w-1/2 p-2">
+        <div key={a.r.id} className="flex w-full p-2">
           <div className=" pr-1">
             <Image
               className="rounded-full"
