@@ -21,7 +21,10 @@ export default function Results() {
           </div>
           <div className="w-3/4">
             <div className="flex w-full justify-between">
-              <Link href="/" className="hover:text-purple-400">
+              <Link
+                href={`/${a.r.display_name}`}
+                className="hover:text-purple-400"
+              >
                 {a.r.display_name}
               </Link>
               <button className="rounded-lg bg-[#9147FF] px-2">Vote</button>
