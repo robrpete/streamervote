@@ -39,7 +39,7 @@ export default function Home() {
           ref={cardEl}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className="relative z-10 h-fit w-fit overflow-hidden rounded-lg border-[1px] border-white/20 bg-black shadow-md shadow-white/20"
+          className="relative z-10 h-fit w-full overflow-hidden rounded-lg border-[1px] border-white/20 bg-black shadow-md shadow-white/20 mob:w-52"
         >
           <div
             ref={circleEl}
@@ -54,10 +54,6 @@ export default function Home() {
         </div>
       </div>
       <RunnerUp />
-      <div>
-        <p>{votes}</p>
-        <button onClick={handleIncrease}>click</button>
-      </div>
     </>
   );
 }

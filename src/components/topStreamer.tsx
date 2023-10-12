@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function TopStreamer() {
   return (
-    <div className="flex h-fit w-fit flex-col items-center rounded-md px-2 py-2">
+    <div className="flex h-fit w-full flex-col items-center rounded-md px-2 py-2">
       <p className="pb-4 text-3xl font-semibold">zackrawrr</p>
       <Image
         src="/rawrr.png"

@@ -29,7 +29,14 @@ export default function Results() {
               </Link>
               <button className="rounded-lg bg-[#9147FF] px-2">Vote</button>
             </div>
-            <p className="text-left">Last seen: {a.r.game_name}</p>
+            {a.r.is_live && (
+              <p className="text-left text-green-600">Live: {a.r.game_name}</p>
+            )}
+            {!a.r.is_live && (
+              <p className="text-left text-red-600">
+                Last seen: {a.r.game_name}
+              </p>
+            )}
           </div>
         </div>
       ))}
