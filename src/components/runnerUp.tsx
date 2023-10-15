@@ -21,18 +21,18 @@ export default function RunnerUp() {
       <h2 className="pb-4 text-3xl font-bold text-purple-400 mob:text-4xl">
         Runner Ups
       </h2>
-      <div className="flex w-11/12 flex-wrap justify-evenly">
-        <div className="flex w-64 flex-col items-center border-[1px] border-yellow-500">
+      <div className="flex w-11/12 flex-wrap justify-evenly gap-2">
+        <div className="flex w-64 flex-col items-center rounded-full bg-yellow-500">
           <Image src="/teccy.png" width={60} height={60} alt="profile" />
           <p>Tectone1</p>
           <p>votes</p>
         </div>
-        <div className="flex w-64 flex-col items-center border-[1px] border-slate-500">
+        <div className="flex w-64 flex-col items-center rounded-full bg-slate-500">
           <Image src="/teccy.png" width={60} height={60} alt="profile" />
           <p>Tectone2</p>
           <p>votes</p>
         </div>
-        <div className="flex w-64 flex-col items-center border-[1px] border-orange-950">
+        <div className="flex w-64 flex-col items-center rounded-full bg-orange-950">
           <Image src="/teccy.png" width={60} height={60} alt="profile" />
           <p>Tectone3</p>
           <p>votes</p>
