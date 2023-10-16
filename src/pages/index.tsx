@@ -31,7 +31,7 @@ export default function Home() {
   // if (!data) return <div>no data</div>;
   return (
     <>
-      <h2 className="inline-block bg-gradient-to-b from-purple-700 to-white bg-clip-text pb-4 text-4xl font-bold text-transparent mob:text-5xl">
+      <h2 className="inline-block bg-gradient-to-r from-purple-500 to-purple-200 bg-clip-text pb-4 text-4xl font-bold text-transparent mob:text-5xl">
         Top Streamer
       </h2>
       <div>
