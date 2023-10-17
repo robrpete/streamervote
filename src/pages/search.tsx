@@ -27,7 +27,6 @@ export default function Results() {
               >
                 {a.r.display_name}
               </Link>
-              <button className="rounded-lg bg-[#9147FF] px-2">Vote</button>
             </div>
             {a.r.is_live && (
               <p className="text-left text-green-600">Live: {a.r.game_name}</p>
@@ -37,6 +36,13 @@ export default function Results() {
                 Last seen: {a.r.game_name}
               </p>
             )}
+          </div>
+          <div>
+            <button className="w-16 rounded-lg bg-[#9147FF] px-2">Vote</button>
+            <div className="h-2"></div>
+            <button className="w-16 rounded-lg px-2 text-[#9147FF]">
+              Follow
+            </button>
           </div>
         </div>
       ))}
