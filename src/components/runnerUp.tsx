@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useElementSize, useMouse } from "@mantine/hooks";
 import { useState } from "react";
 
@@ -34,7 +35,9 @@ export default function RunnerUp() {
         </div>
         <div className="flex w-64 flex-col items-center rounded-full bg-orange-950">
           <Image src="/teccy.png" width={60} height={60} alt="profile" />
-          <p>Tectone3</p>
+          <Link ref={`/tectone`}>
+            <p>Tectone3</p>
+          </Link>
           <p>votes</p>
         </div>
       </div>
