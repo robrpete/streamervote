@@ -5,6 +5,10 @@ import Link from "next/link";
 
 import { searchChannels } from "~/utils/twitchAPI";
 import { searchedStore } from "~/utils/zusState";
+import { SignInButton } from "@clerk/nextjs";
+import { SignOutButton } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
+import { Divider } from "@mantine/core";
 
 type ss = {
   broadcaster_language: string;
@@ -23,6 +27,7 @@ type ss = {
 
 export default function Nav() {
   const { data: token } = api.token.getToken.useQuery();
+  const { isSignedIn } = useUser();
   const [search, setSearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const searched = searchedStore((state) => state.searched);
@@ -124,6 +129,17 @@ export default function Nav() {
         </div>
         <div className="w-1/3">
           <div className="flex justify-end">
+            {!isSignedIn && (
+              <div className="bg-green-400 px-2 text-black">
+                <SignInButton />
+              </div>
+            )}
+            {isSignedIn && (
+              <div className="bg-red-600 px-2">
+                <SignOutButton />
+              </div>
+            )}
+            <div className="w-2"></div>
             <Image
               src="/av.png"
               height={30}
