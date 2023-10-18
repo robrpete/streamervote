@@ -35,7 +35,7 @@ export default function RunnerUp() {
         </div>
         <div className="flex w-64 flex-col items-center rounded-full bg-orange-950">
           <Image src="/teccy.png" width={60} height={60} alt="profile" />
-          <Link ref={`/tectone`}>
+          <Link href={`/tectone`}>
             <p>Tectone3</p>
           </Link>
           <p>votes</p>
