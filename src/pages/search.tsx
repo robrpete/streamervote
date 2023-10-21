@@ -5,8 +5,7 @@ import { useRouter } from "next/router";
 
 export default function Results() {
   const router = useRouter();
-  const streamer: string = router.query.term;
-  console.log(streamer);
+  const streamer: string = (router.query.term as string | undefined) ?? "fuck";
   const { searched } = searchedStore();
   const arr = Array.from(searched);
   const match = arr.find((a) => {
